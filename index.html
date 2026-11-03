@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>케이알건설(주) | KR Construction & Engineering</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        pastel: {
+                            blue: '#E8F1F5',
+                            sky: '#0284c7',
+                            skySoft: '#E0F2FE',
+                            mint: '#EBF5F0',
+                            mintDark: '#0D9488',
+                            lavender: '#F1F0F9',
+                            lavenderDark: '#6366F1',
+                            amber: '#FEF3C7',
+                            amberDark: '#D97706',
+                            cream: '#FAFAF9',
+                            slate: '#F8FAFC'
+                        },
+                        kr: {
+                            primary: '#0F3C68',      /* 케이알건설 딥블루 (가독성 높은 텍스트/헤드라인용) */
+                            accent: '#0284C7',       /* 밝은 코발트 블루 포인트 */
+                            mint: '#14B8A6',
+                            textDark: '#1E293B',     /* 본문 고대비 가독성 폰트색 */
+                            textMuted: '#475569'     /* 부가설명 폰트색 */
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Pretendard', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'Roboto', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        /* 가독성을 높이는 선명한 폰트 렌더링 */
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F1F5F9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #CBD5E1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94A3B8;
+        }
+        .soft-card-shadow {
+            box-shadow: 0 10px 30px -10px rgba(15, 60, 104, 0.07);
+        }
+    </style>
+</head>
+<body class="bg-pastel-cream text-kr-textDark font-sans selection:bg-kr-accent selection:text-white">
+
+    <!-- Header / Navigation -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 transition-all shadow-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-600 via-sky-500 to-teal-400 flex items-center justify-center text-white font-black text-lg shadow-sm group-hover:scale-105 transition-transform">
+                    KR
+                </div>
+                <div class="flex flex-col">
+                    <div class="flex items-center gap-1.5">
+                        <span class="text-xl font-black tracking-tight text-kr-primary">케이알건설<span class="text-xs font-bold text-kr-accent">(주)</span></span>
+                        <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-pastel-mint text-pastel-mintDark border border-teal-200">벤처·여성기업</span>
+                    </div>
+                    <span class="text-[10px] tracking-wider text-slate-500 font-medium uppercase">KR INDUSTRY Co., Ltd.</span>
+                </div>
+            </a>
+
+            <!-- Desktop Menu -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-700">
+                <a href="#about" class="hover:text-kr-accent transition-colors">회사소개</a>
+                <a href="#patents" class="hover:text-kr-accent transition-colors">핵심 특허공법</a>
+                <a href="#safety-diag" class="hover:text-kr-accent transition-colors">안전진단 솔루션</a>
+                <a href="#certifications" class="hover:text-kr-accent transition-colors">인증 및 기술진</a>
+                <a href="#performance" class="hover:text-kr-accent transition-colors">공사실적</a>
+                <a href="#contact" class="hover:text-kr-accent transition-colors">문의 및 오시는 길</a>
+            </nav>
+
+            <!-- Quick Contact Badge -->
+            <div class="hidden lg:flex items-center gap-3">
+                <div class="text-right">
+                    <p class="text-[11px] text-slate-500 font-medium">본사 직통 기술상담</p>
+                    <p class="text-sm font-extrabold text-kr-primary">061-285-6900</p>
+                </div>
+                <a href="#contact" class="px-4 py-2 rounded-xl bg-sky-50 hover:bg-sky-100 text-kr-accent border border-sky-200 text-xs font-bold transition-all flex items-center gap-1.5">
+                    <span>견적 문의</span>
+                    <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobile-menu-btn" class="p-2 md:hidden text-slate-700 hover:text-kr-accent focus:outline-none" aria-label="메뉴 열기">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-6 py-5 shadow-lg">
+            <div class="flex flex-col gap-3 text-sm font-semibold text-slate-700">
+                <a href="#about" class="mobile-link py-2 border-b border-slate-100">회사소개</a>
+                <a href="#patents" class="mobile-link py-2 border-b border-slate-100">핵심 특허공법</a>
+                <a href="#safety-diag" class="mobile-link py-2 border-b border-slate-100">안전진단 솔루션</a>
+                <a href="#certifications" class="mobile-link py-2 border-b border-slate-100">인증 및 기술진</a>
+                <a href="#performance" class="mobile-link py-2 border-b border-slate-100">공사실적</a>
+                <a href="#contact" class="mobile-link py-2 border-b border-slate-100">문의 및 위치</a>
+                <div class="pt-2 text-xs text-slate-500">
+                    전화상담: <span class="font-bold text-kr-primary">061-285-6900</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-20">
+        <!-- Hero Section with Pastel Gradient & Soft Architecture Visual -->
+        <section class="relative bg-gradient-to-b from-pastel-blue via-pastel-slate to-pastel-cream py-20 lg:py-28 overflow-hidden border-b border-sky-100/80">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    
+                    <div class="lg:col-span-7 text-left">
+                        <!-- Soft Pastel Badges -->
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-white text-kr-accent shadow-xs border border-sky-100">
+                                <span class="w-2 h-2 rounded-full bg-kr-accent"></span> 시설물유지관리 전문기업
+                            </span>
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-pastel-mint text-pastel-mintDark border border-teal-200">
+                                벤처기업 · 기술부설연구소 보유
+                            </span>
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-pastel-lavender text-pastel-lavenderDark border border-indigo-200">
+                                정밀안전진단 전문기관
+                            </span>
+                        </div>
+
+                        <h1 class="text-3xl sm:text-5xl font-black text-kr-primary leading-tight tracking-tight mb-6">
+                            첨단 특허기술과 정밀 진단으로<br>
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-600 to-teal-600">대한민국의 안전한 내일</span>을 세웁니다
+                        </h1>
+
+                        <p class="text-base sm:text-lg text-kr-textMuted leading-relaxed max-w-2xl mb-8">
+                            케이알건설(주)은 2019년 설립 이후 탄탄한 기초와 독자적 특허공법(KRM 단면·표면보수, MCS 컴퓨터 교량 동조 인상, KRS 친환경 중방식 도장, KRS-C 레이저 세정)을 바탕으로 국가 인프라와 시설물 안전을 선도합니다.
+                        </p>
+
+                        <!-- Actions -->
+                        <div class="flex flex-wrap items-center gap-4">
+                            <a href="#patents" class="px-6 py-3.5 rounded-xl bg-kr-primary hover:bg-sky-900 text-white font-bold text-sm shadow-md hover:shadow-lg transition-all flex items-center gap-2">
+                                <i data-lucide="layers" class="w-4 h-4"></i>
+                                <span>핵심 특허공법 보기</span>
+                            </a>
+                            <a href="#performance" class="px-6 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-kr-primary border border-slate-300 font-bold text-sm transition-all flex items-center gap-2 shadow-xs">
+                                <i data-lucide="clipboard-check" class="w-4 h-4 text-kr-accent"></i>
+                                <span>공사실적 확인</span>
+                            </a>
+                        </div>
+
+                        <!-- Stats Highlights -->
+                        <div class="grid grid-cols-3 gap-4 mt-12 pt-8 border-t border-slate-200/80 max-w-lg">
+                            <div class="p-3 bg-white/80 rounded-xl border border-sky-100">
+                                <p class="text-2xl font-black text-kr-accent">5건+</p>
+                                <p class="text-xs text-slate-500 font-semibold mt-0.5">등록 특허기술</p>
+                            </div>
+                            <div class="p-3 bg-white/80 rounded-xl border border-sky-100">
+                                <p class="text-2xl font-black text-teal-600">±0.3mm</p>
+                                <p class="text-xs text-slate-500 font-semibold mt-0.5">교량 인상 초정밀도</p>
+                            </div>
+                            <div class="p-3 bg-white/80 rounded-xl border border-sky-100">
+                                <p class="text-2xl font-black text-indigo-600">40여건+</p>
+                                <p class="text-xs text-slate-500 font-semibold mt-0.5">국도·교량 시공실적</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Visual Card with Pastel Mood -->
+                    <div class="lg:col-span-5 relative">
+                        <div class="bg-white p-6 sm:p-8 rounded-3xl soft-card-shadow border border-sky-100 relative z-10">
+                            <div class="w-full h-64 rounded-2xl overflow-hidden mb-6 bg-slate-100 relative group">
+                                <img 
+                                    src="https://images.unsplash.com/photo-1545558014-8692077e9b5c?auto=format&fit=crop&w=800&q=80" 
+                                    alt="교량 및 시설물 유지보수 현장" 
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                    onerror="this.src='https://placehold.co/800x600/E0F2FE/0F3C68?text=케이알건설(주)'"
+                                >
+                                <span class="absolute bottom-3 left-3 bg-white/90 backdrop-blur-md px-3 py-1 rounded-lg text-xs font-bold text-kr-primary shadow-xs">
+                                    특허기반 첨단 교량유지보수
+                                </span>
+                            </div>
+
+                            <div class="space-y-3.5">
+                                <div class="flex items-center gap-3 p-3 rounded-xl bg-pastel-blue/60 border border-sky-100">
+                                    <div class="w-9 h-9 rounded-lg bg-white flex items-center justify-center text-kr-accent shadow-2xs">
+                                        <i data-lucide="check-circle" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xs font-bold text-kr-primary">국책 국도/교량/항만 실적 다수</h4>
+                                        <p class="text-[11px] text-slate-500">순천, 광주, 정선, 강릉국토관리사무소 및 지자체 공사</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center gap-3 p-3 rounded-xl bg-pastel-mint/60 border border-teal-100">
+                                    <div class="w-9 h-9 rounded-lg bg-white flex items-center justify-center text-teal-600 shadow-2xs">
+                                        <i data-lucide="shield-alert" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xs font-bold text-kr-primary">교량 및 터널 정밀안전진단</h4>
+                                        <p class="text-[11px] text-slate-500">외관상태, 철근탐사, 초음파, 재하시험 원스톱 수행</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pastel Decorative Blobs -->
+                        <div class="absolute -top-10 -right-10 w-64 h-64 bg-pastel-skySoft/60 rounded-full blur-3xl -z-10"></div>
+                        <div class="absolute -bottom-10 -left-10 w-64 h-64 bg-pastel-mint/80 rounded-full blur-3xl -z-10"></div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us & CEO Message Section -->
+        <section id="about" class="py-24 bg-white border-b border-slate-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Section Title -->
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-xs font-extrabold uppercase tracking-widest text-kr-accent bg-pastel-skySoft px-3 py-1 rounded-full">ABOUT KR CONSTRUCTION</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-kr-primary mt-3 mb-4">신뢰와 기술로 기초를 탄탄히 다지는 기업</h2>
+                    <p class="text-kr-textMuted text-base">케이알건설은 끊임없는 연구개발과 열정적인 임직원이 함께 시설물유지보수의 새로운 표준을 만들어갑니다.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <!-- Left: CEO Message -->
+                    <div class="lg:col-span-7 bg-pastel-slate p-8 sm:p-10 rounded-3xl border border-slate-200">
+                        <div class="flex items-center gap-3 text-kr-accent mb-4">
+                            <i data-lucide="message-square-quote" class="w-6 h-6"></i>
+                            <span class="text-xs font-bold tracking-wider uppercase">대표이사 인사말</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-kr-primary mb-6">
+                            "고객에게 최고의 품질과 만족감을 드리기 위해 불철주야 발전하겠습니다."
+                        </h3>
+                        <div class="text-sm text-kr-textMuted leading-relaxed space-y-4">
+                            <p>
+                                안녕하십니까? 케이알건설 대표이사 <strong>김양진</strong>입니다.
+                            </p>
+                            <p>
+                                케이알건설은 2019년 창업 이래 꾸준하게 성장 중이며 항상 최고의 품질과 기술력으로 기초를 탄탄하게 다져왔습니다. 이러한 탄탄함을 바탕으로 시설물유지보수업에서 두각을 나타내고 있습니다.
+                            </p>
+                            <p>
+                                많은 임직원들이 함께 노력하여 활기찬 분위기와 쾌적한 근무환경을 만들고 있으며, 기존 기술의 보강뿐 아니라 새로운 특허 신공법에 지속적으로 도전하고 있습니다. 앞으로도 현재 상황에 안주하지 않고 최고의 시공 품질로 고객의 신뢰에 보답하겠습니다.
+                            </p>
+                        </div>
+                        <div class="mt-8 pt-6 border-t border-slate-200 flex items-center justify-between">
+                            <div>
+                                <span class="text-xs text-slate-500">케이알건설 주식회사</span>
+                                <h4 class="text-base font-bold text-kr-primary">대표이사 김 양 진</h4>
+                            </div>
+                            <div class="px-3.5 py-1.5 rounded-lg bg-white border border-slate-200 text-xs font-semibold text-slate-600">
+                                2019.01 설립
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Vision 3 Pillars (변화, 환경, 신뢰) -->
+                    <div class="lg:col-span-5 space-y-4">
+                        <div class="text-left mb-6">
+                            <span class="text-xs font-bold text-teal-600 uppercase tracking-wider">CORE VALUES</span>
+                            <h3 class="text-2xl font-extrabold text-kr-primary mt-1">3대 경영 핵심 가치</h3>
+                        </div>
+
+                        <!-- 변화 Card -->
+                        <div class="p-6 rounded-2xl bg-pastel-skySoft/70 border border-sky-200/60 hover:bg-sky-100/60 transition-all flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-white text-sky-600 flex items-center justify-center shrink-0 shadow-xs font-bold text-lg">
+                                <i data-lucide="sparkles" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-base font-bold text-kr-primary">변화 (Change)</h4>
+                                <p class="text-xs text-kr-textMuted leading-relaxed mt-1">
+                                    항상 그 자리에 머물지 않고 능동적인 마인드로 첨단 엔지니어링 기술 개발을 위해 끊임없이 도전합니다.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- 환경 Card -->
+                        <div class="p-6 rounded-2xl bg-pastel-mint/70 border border-teal-200/60 hover:bg-teal-100/60 transition-all flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-white text-teal-600 flex items-center justify-center shrink-0 shadow-xs font-bold text-lg">
+                                <i data-lucide="leaf" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-base font-bold text-kr-primary">환경 (Environment)</h4>
+                                <p class="text-xs text-kr-textMuted leading-relaxed mt-1">
+                                    산업부산물(용선슬래그) 재활용 모르타르, 친환경 수용성 도료 등 사람과 자연이 함께 숨 쉬는 녹색 환경을 지향합니다.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- 신뢰 Card -->
+                        <div class="p-6 rounded-2xl bg-pastel-lavender/70 border border-indigo-200/60 hover:bg-indigo-100/60 transition-all flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-white text-indigo-600 flex items-center justify-center shrink-0 shadow-xs font-bold text-lg">
+                                <i data-lucide="handshake" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-base font-bold text-kr-primary">신뢰 (Trust)</h4>
+                                <p class="text-xs text-kr-textMuted leading-relaxed mt-1">
+                                    기본과 원칙에 충실한 성실시공과 고객과의 적극적인 소통을 통해 상호존중과 상생성장의 동반자가 됩니다.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- History Timeline (연혁) -->
+                <div class="mt-20 pt-16 border-t border-slate-200">
+                    <div class="flex items-center justify-between mb-8">
+                        <div>
+                            <span class="text-xs font-bold text-kr-accent uppercase tracking-wider">HISTORY</span>
+                            <h3 class="text-2xl font-extrabold text-kr-primary mt-1">주요 연혁</h3>
+                        </div>
+                        <span class="text-xs text-slate-500 font-medium">카탈로그 공인 기록 기준</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- 2019 -->
+                        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                            <span class="text-xl font-black text-sky-600">2019</span>
+                            <h4 class="text-sm font-bold text-kr-primary mt-1 mb-3">설립 및 기반 구축</h4>
+                            <ul class="text-xs text-kr-textMuted space-y-2">
+                                <li>• <strong>01.</strong> 케이알건설(주) 창업</li>
+                                <li>• <strong>01.</strong> 삼화페인트 / (주)케미우스코리아 / (주)케이알티앤에스 OEM 협약 체결</li>
+                                <li>• <strong>02.</strong> 시설물유지관리업 등록 (목포 2019-29-05)</li>
+                                <li>• <strong>03.</strong> 여성기업 확인 등록 (제0126-2019-01555호)</li>
+                                <li>• <strong>03.</strong> 석면해체제거업 등록 (제5740호)</li>
+                            </ul>
+                        </div>
+
+                        <!-- 2020 상반기 -->
+                        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                            <span class="text-xl font-black text-teal-600">2020 상반기</span>
+                            <h4 class="text-sm font-bold text-kr-primary mt-1 mb-3">특허 인증 및 기술 도약</h4>
+                            <ul class="text-xs text-kr-textMuted space-y-2">
+                                <li>• <strong>02.</strong> 금속구조물·창호·온실공사업 등록</li>
+                                <li>• <strong>03.</strong> 컴퓨터 교량 동시 인상 시스템(MCS) 개발</li>
+                                <li>• <strong>03.</strong> 중소기업 확인서 (0010-2020-44578)</li>
+                                <li>• <strong>04.</strong> 강 교량 녹/페인트 레이저 제거 특허출원</li>
+                                <li>• <strong>05.</strong> 벤처기업 인증 (기술보증기금 제20200109308호)</li>
+                                <li>• <strong>05.</strong> 기업부설연구소 공식 인정 (제2020112954호)</li>
+                            </ul>
+                        </div>
+
+                        <!-- 2020 하반기 ~ 현재 -->
+                        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                            <span class="text-xl font-black text-indigo-600">2020 하반기 ~</span>
+                            <h4 class="text-sm font-bold text-kr-primary mt-1 mb-3">특허 등록 및 시장 확대</h4>
+                            <ul class="text-xs text-kr-textMuted space-y-2">
+                                <li>• <strong>07.</strong> 친환경 중방식 도장방법 특허 등록 (제10-2133243호)</li>
+                                <li>• <strong>10.</strong> 강 교량 녹/페인트 제거 특허 등록 (제10-2166122호)</li>
+                                <li>• <strong>12.</strong> 친환경 선박용 냉난방 시스템 특허 출원</li>
+                                <li>• 우레탄 보수재 균열보수 및 수중보수몰탈 공법 연구개발 추진</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Core Patented Technologies (카탈로그 핵심 4대 특허공법) -->
+        <section id="patents" class="py-24 bg-pastel-cream">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-xs font-extrabold uppercase tracking-widest text-kr-accent bg-pastel-skySoft px-3 py-1 rounded-full">PATENTED TECHNOLOGIES</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-kr-primary mt-3 mb-4">케이알건설 독자 특허 신공법</h2>
+                    <p class="text-kr-textMuted text-base">제철 부산물 친환경 재활용부터 0.1mm 단위 초정밀 교량 제어까지, 검증된 기술력으로 완벽한 시공을 보장합니다.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    
+                    <!-- 1. KRM 콘크리트 단면 및 표면보수 공법 -->
+                    <div class="bg-white rounded-3xl p-8 soft-card-shadow border border-sky-100 hover:border-sky-300 transition-all flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="px-3 py-1 rounded-lg text-xs font-bold bg-pastel-skySoft text-kr-accent border border-sky-200">
+                                    특허 제10-1975001호 / 제10-2058597호
+                                </span>
+                                <span class="text-xs font-semibold text-slate-400">04-1 기술</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-kr-primary mb-3">KRM 콘크리트 단면·표면보수 공법</h3>
+                            <p class="text-sm text-kr-textMuted leading-relaxed mb-6">
+                                제철산업 부산물인 <strong>용선슬래그 파우더와 활성화제 물질</strong>을 융합한 친환경 폴리머 모르타르 공법입니다. 기존 보수재료 대비 부착강도, 압축·휨강도가 우수하며 동결융해 및 중성화 방지 효과가 뛰어납니다.
+                            </p>
+
+                            <!-- Feature Tags -->
+                            <div class="grid grid-cols-2 gap-2 text-xs font-medium text-slate-700 mb-6">
+                                <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex items-center gap-2">
+                                    <i data-lucide="shield" class="w-4 h-4 text-sky-600 shrink-0"></i>
+                                    <span>우수한 내구성 (중성화 방지)</span>
+                                </div>
+                                <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex items-center gap-2">
+                                    <i data-lucide="droplet" class="w-4 h-4 text-sky-600 shrink-0"></i>
+                                    <span>내화학성 (황산염/염화물 차단)</span>
+                                </div>
+                                <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex items-center gap-2">
+                                    <i data-lucide="check" class="w-4 h-4 text-sky-600 shrink-0"></i>
+                                    <span>부착성 탁월 (들뜸 현상 0%)</span>
+                                </div>
+                                <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex items-center gap-2">
+                                    <i data-lucide="trending-up" class="w-4 h-4 text-sky-600 shrink-0"></i>
+                                    <span>내용연수 증가 (높은 경제성)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- System Product Lineup Box -->
+                        <div class="pt-4 border-t border-slate-100 text-xs text-slate-600">
+                            <span class="font-bold text-kr-primary">시스템 구성재:</span> 
+                            KRM-100(알칼리회복제) + KRM-200(프라이머) + KRM-Mortar(폴리머몰탈) + KRM-300(중성화방지제)
+                        </div>
+                    </div>
+
+                    <!-- 2. MCS 컴퓨터 교량 동조 인상시스템 -->
+                    <div class="bg-white rounded-3xl p-8 soft-card-shadow border border-teal-100 hover:border-teal-300 transition-all flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="px-3 py-1 rounded-lg text-xs font-bold bg-pastel-mint text-pastel-mintDark border border-teal-200">
+                                    특허 제10-2049868호
+                                </span>
+                                <span class="text-xs font-semibold text-slate-400">04-2 기술</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-kr-primary mb-3">MCS 컴퓨터 교량 동조 인상시스템</h3>
+                            <p class="text-sm text-kr-textMuted leading-relaxed mb-6">
+                                멀티피스톤펌프(12개 개별 미니펌프 토출)와 모터 정밀 제어를 통해 교량 하중에 따라 요구되는 복수 유압잭을 동일 압력으로 균등 인상하는 국내 최고 수준의 컴퓨터 제어 시스템입니다.
+                            </p>
+
+                            <!-- Feature Tags -->
+                            <div class="grid grid-cols-2 gap-2 text-xs font-medium text-slate-700 mb-6">
+                                <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex items-center gap-2">
+                                    <i data-lucide="crosshair" class="w-4 h-4 text-teal-600 shrink-0"></i>
+                                    <span>정밀도 ±0.3mm (변위 0.1mm 제어)</span>
+                                </div>
+                                <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex items-center gap-2">
+                                    <i data-lucide="monitor" class="w-4 h-4 text-teal-600 shrink-0"></i>
+                                    <span>실시간 터치 패널 모니터링</span>
+                                </div>
+                                <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex items-center gap-2">
+                                    <i data-lucide="alert-triangle" class="w-4 h-4 text-teal-600 shrink-0"></i>
+                                    <span>안전편차 자동 보정 및 균등제어</span>
+                                </div>
+                                <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex items-center gap-2">
+                                    <i data-lucide="clock" class="w-4 h-4 text-teal-600 shrink-0"></i>
+                                    <span>구조물 손상 방지 & 공기 단축</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-slate-100 text-xs text-slate-600">
+                            <span class="font-bold text-kr-primary">주요 적용 분야:</span> 
+                            교좌장치(받침) 철거 및 신규 교체, 교량 내진보강공사, 신축이음장치 보수
+                        </div>
+                    </div>
+
+                    <!-- 3. KRS 친환경 중방식 도장방법 -->
+                    <div class="bg-white rounded-3xl p-8 soft-card-shadow border border-indigo-100 hover:border-indigo-300 transition-all flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="px-3 py-1 rounded-lg text-xs font-bold bg-pastel-lavender text-pastel-lavenderDark border border-indigo-200">
+                                    특허 제10-2133243호
+                                </span>
+                                <span class="text-xs font-semibold text-slate-400">04-3 기술</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-kr-primary mb-3">KRS 친환경 중방식 도장방법</h3>
+                            <p class="text-sm text-kr-textMuted leading-relaxed mb-6">
+                                유해 휘발성 유기화합물(VOC) 함량을 획기적으로 낮춘 <strong>친환경 수용성 폴리우레탄 수지도료</strong> 시스템입니다. 물을 용제로 사용하여 화재 위험이 없으며 교량 및 철구조물에 강력한 내후성과 광택을 부여합니다.
+                            </p>
+
+                            <!-- Feature Tags -->
+                            <div class="grid grid-cols-2 gap-2 text-xs font-medium text-slate-700 mb-6">
+                                <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex items-center gap-2">
+                                    <i data-lucide="shield-check" class="w-4 h-4 text-indigo-600 shrink-0"></i>
+                                    <span>저VOC 친환경 도막 형성</span>
+                                </div>
+                                <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex items-center gap-2">
+                                    <i data-lucide="flame" class="w-4 h-4 text-indigo-600 shrink-0"></i>
+                                    <span>수용성 기반 화재위험 0%</span>
+                                </div>
+                                <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex items-center gap-2">
+                                    <i data-lucide="sun" class="w-4 h-4 text-indigo-600 shrink-0"></i>
+                                    <span>자외선 내후성 & 광택 보존력</span>
+                                </div>
+                                <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex items-center gap-2">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-indigo-600 shrink-0"></i>
+                                    <span>KTR 공인 시험성적서 완료</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-slate-100 text-xs text-slate-600">
+                            <span class="font-bold text-kr-primary">도장 레이어 구조:</span> 
+                            모재 → 도막박리제(K.R.M-1000) → 하도(WE-100) → 중도(WE-200) → 상도(WP-300)
+                        </div>
+                    </div>
+
+                    <!-- 4. KRS-C 강 교량 녹·페인트 레이저 제거방법 -->
+                    <div class="bg-white rounded-3xl p-8 soft-card-shadow border border-amber-100 hover:border-amber-300 transition-all flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="px-3 py-1 rounded-lg text-xs font-bold bg-pastel-amber text-pastel-amberDark border border-amber-200">
+                                    특허 제10-2166122호
+                                </span>
+                                <span class="text-xs font-semibold text-slate-400">04-4 기술</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-kr-primary mb-3">KRS-C 레이저 세정 녹·도장 제거공법</h3>
+                            <p class="text-sm text-kr-textMuted leading-relaxed mb-6">
+                                기존 모래분사(샌드블라스트) 방식의 분진과 소음 문제를 해결한 친환경 정밀 기술입니다. 도장 박리제 도포 후 <strong>비접촉식 레이저 클리닝</strong>을 적용하여 모재 손상 없이 오염층만 완벽하게 제거합니다.
+                            </p>
+
+                            <!-- Feature Tags -->
+                            <div class="grid grid-cols-2 gap-2 text-xs font-medium text-slate-700 mb-6">
+                                <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex items-center gap-2">
+                                    <i data-lucide="zap" class="w-4 h-4 text-amber-600 shrink-0"></i>
+                                    <span>비접촉식 (모재 손상 없음)</span>
+                                </div>
+                                <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex items-center gap-2">
+                                    <i data-lucide="dollar-sign" class="w-4 h-4 text-amber-600 shrink-0"></i>
+                                    <span>폐기물 처리비 90% 이상 절감</span>
+                                </div>
+                                <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex items-center gap-2">
+                                    <i data-lucide="smile" class="w-4 h-4 text-amber-600 shrink-0"></i>
+                                    <span>작업자 무해 & 비산먼지 차단</span>
+                                </div>
+                                <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex items-center gap-2">
+                                    <i data-lucide="sparkle" class="w-4 h-4 text-amber-600 shrink-0"></i>
+                                    <span>신속한 표면 클리닝 속도</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-slate-100 text-xs text-slate-600">
+                            <span class="font-bold text-kr-primary">폐기물 처리비 비교:</span> 
+                            기존 샌드블라스트 14,000원/㎡ vs <span class="font-bold text-amber-600">레이저 세정 1,200원/㎡</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Safety Diagnosis & Port Engineering Section (카탈로그 04-5, 04-6) -->
+        <section id="safety-diag" class="py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+                    <div>
+                        <span class="text-xs font-extrabold uppercase tracking-widest text-teal-600 bg-pastel-mint px-3 py-1 rounded-full">FACILITY DIAGNOSIS</span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-kr-primary mt-3 mb-4">교량 및 터널 안전점검·정밀안전진단</h2>
+                        <p class="text-kr-textMuted text-sm sm:text-base leading-relaxed">
+                            케이알건설은 국토교통부 기준에 따른 시설물안전법 정기점검, 정밀점검, 정밀안전진단을 수행하는 전문 역량을 보유하고 있습니다. 첨단 비파괴 검사장비를 통해 물리적·기능적 결함을 정확히 진단합니다.
+                        </p>
+                    </div>
+
+                    <!-- Diagnosis Table Card -->
+                    <div class="bg-pastel-slate p-6 rounded-2xl border border-slate-200">
+                        <h4 class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">시설물안전법 점검 기준 주기</h4>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left text-xs">
+                                <thead>
+                                    <tr class="border-b border-slate-200 text-slate-600">
+                                        <th class="pb-2 font-bold">구분</th>
+                                        <th class="pb-2 font-bold">안전등급</th>
+                                        <th class="pb-2 font-bold">실시 주기</th>
+                                        <th class="pb-2 font-bold">주요 내용</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-100 text-slate-700">
+                                    <tr>
+                                        <td class="py-2.5 font-bold text-kr-primary">정기점검</td>
+                                        <td class="py-2.5">A~E등급</td>
+                                        <td class="py-2.5 font-semibold text-sky-600">1회 / 6개월</td>
+                                        <td class="py-2.5">세심한 외관조사</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2.5 font-bold text-kr-primary">정밀점검</td>
+                                        <td class="py-2.5">A등급</td>
+                                        <td class="py-2.5 font-semibold text-teal-600">3년에 1회 이상</td>
+                                        <td class="py-2.5">상태평가 및 안전등급 지정</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2.5 font-bold text-kr-primary">정밀안전진단</td>
+                                        <td class="py-2.5">A등급</td>
+                                        <td class="py-2.5 font-semibold text-indigo-600">6년에 1회 이상</td>
+                                        <td class="py-2.5">상태평가 및 안전성 종합평가</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6 Diagnostic Method Cards -->
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+                    <div class="p-4 rounded-2xl bg-white border border-slate-200 text-center hover:shadow-md transition-all">
+                        <div class="w-10 h-10 mx-auto rounded-xl bg-pastel-blue flex items-center justify-center text-kr-accent mb-3">
+                            <i data-lucide="eye" class="w-5 h-5"></i>
+                        </div>
+                        <h4 class="text-xs font-bold text-kr-primary">외관상태조사</h4>
+                        <p class="text-[11px] text-slate-500 mt-1">균열, 박리, 누수 등</p>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-white border border-slate-200 text-center hover:shadow-md transition-all">
+                        <div class="w-10 h-10 mx-auto rounded-xl bg-pastel-mint flex items-center justify-center text-teal-600 mb-3">
+                            <i data-lucide="scan" class="w-5 h-5"></i>
+                        </div>
+                        <h4 class="text-xs font-bold text-kr-primary">철근탐사시험</h4>
+                        <p class="text-[11px] text-slate-500 mt-1">전자파 레이더 탐사</p>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-white border border-slate-200 text-center hover:shadow-md transition-all">
+                        <div class="w-10 h-10 mx-auto rounded-xl bg-pastel-lavender flex items-center justify-center text-indigo-600 mb-3">
+                            <i data-lucide="activity" class="w-5 h-5"></i>
+                        </div>
+                        <h4 class="text-xs font-bold text-kr-primary">초음파탐사시험</h4>
+                        <p class="text-[11px] text-slate-500 mt-1">콘크리트 내부 결함</p>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-white border border-slate-200 text-center hover:shadow-md transition-all">
+                        <div class="w-10 h-10 mx-auto rounded-xl bg-pastel-amber flex items-center justify-center text-amber-600 mb-3">
+                            <i data-lucide="test-tube-2" class="w-5 h-5"></i>
+                        </div>
+                        <h4 class="text-xs font-bold text-kr-primary">탄산화(중성화)시험</h4>
+                        <p class="text-[11px] text-slate-500 mt-1">페놀프탈레인 반응</p>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-white border border-slate-200 text-center hover:shadow-md transition-all">
+                        <div class="w-10 h-10 mx-auto rounded-xl bg-pastel-skySoft flex items-center justify-center text-sky-600 mb-3">
+                            <i data-lucide="truck" class="w-5 h-5"></i>
+                        </div>
+                        <h4 class="text-xs font-bold text-kr-primary">재하시험</h4>
+                        <p class="text-[11px] text-slate-500 mt-1">차량 재하 처짐량 측정</p>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-white border border-slate-200 text-center hover:shadow-md transition-all">
+                        <div class="w-10 h-10 mx-auto rounded-xl bg-slate-100 flex items-center justify-center text-slate-700 mb-3">
+                            <i data-lucide="disc" class="w-5 h-5"></i>
+                        </div>
+                        <h4 class="text-xs font-bold text-kr-primary">코아채취 및 균열심도</h4>
+                        <p class="text-[11px] text-slate-500 mt-1">강도 및 균열깊이 산정</p>
+                    </div>
+                </div>
+
+                <!-- Seismic & Harbor Facilities Box (04-6) -->
+                <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="p-6 rounded-3xl bg-pastel-skySoft/60 border border-sky-200/80 flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-2xl bg-white text-kr-accent flex items-center justify-center shrink-0 shadow-xs">
+                            <i data-lucide="box" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-kr-primary mb-1">교량 내진보강공사</h3>
+                            <p class="text-xs text-kr-textMuted leading-relaxed mb-3">
+                                지진 발생 시 교량 상부구조물의 낙교를 방지하기 위한 전단키(Shear Key) 제작·설치 및 교량 거동 에너지를 흡수하는 고성능 점성댐퍼 설치 공사를 완벽 시공합니다.
+                            </p>
+                            <span class="inline-block text-[11px] font-bold text-kr-accent">• 전남 영암 삼포4교, 정선 곰골1교 등 시공 완료</span>
+                        </div>
+                    </div>
+
+                    <div class="p-6 rounded-3xl bg-pastel-mint/60 border border-teal-200/80 flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-2xl bg-white text-teal-600 flex items-center justify-center shrink-0 shadow-xs">
+                            <i data-lucide="anchor" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-kr-primary mb-1">해양·항만시설 및 부잔교 제작·설치</h3>
+                            <p class="text-xs text-kr-textMuted leading-relaxed mb-3">
+                                트러스형상 부잔교, 여객선·관공선 도교 제작 및 함선 긴급복구, 복합다기능 부잔교, 선상집하장 제작 등 해양 조위 변화에 적응하는 내구성 높은 항만 인프라를 구축합니다.
+                            </p>
+                            <span class="inline-block text-[11px] font-bold text-teal-700">• 완도항 관공선부두/예비함선, 진도항 접안시설 등 유지관리</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Certifications & Technical Staff Section -->
+        <section id="certifications" class="py-24 bg-pastel-slate border-y border-slate-200/80">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                    
+                    <!-- Official Certifications List -->
+                    <div class="lg:col-span-5">
+                        <span class="text-xs font-extrabold uppercase tracking-widest text-kr-accent bg-pastel-skySoft px-3 py-1 rounded-full">CERTIFICATES</span>
+                        <h2 class="text-3xl font-extrabold text-kr-primary mt-3 mb-6">공인 인증 및 보유 면허</h2>
+                        <p class="text-kr-textMuted text-sm mb-8 leading-relaxed">
+                            케이알건설(주)은 정부 공인 기관의 엄격한 심사를 통과한 면허와 확인서를 보유하여 사업의 법적 신뢰성과 시공 건전성을 입증합니다.
+                        </p>
+
+                        <div class="space-y-3">
+                            <div class="p-4 rounded-xl bg-white border border-slate-200 flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 rounded-lg bg-sky-50 text-kr-accent flex items-center justify-center">
+                                        <i data-lucide="award" class="w-4 h-4"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xs font-bold text-kr-primary">기술평가보증 벤처기업 인증서</h4>
+                                        <p class="text-[11px] text-slate-500">기술보증기금 (제20200109308호)</p>
+                                    </div>
+                                </div>
+                                <span class="text-[11px] font-semibold text-kr-accent bg-pastel-skySoft px-2 py-0.5 rounded">인증완료</span>
+                            </div>
+
+                            <div class="p-4 rounded-xl bg-white border border-slate-200 flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 rounded-lg bg-teal-50 text-teal-600 flex items-center justify-center">
+                                        <i data-lucide="microscope" class="w-4 h-4"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xs font-bold text-kr-primary">기업부설연구소 인정서</h4>
+                                        <p class="text-[11px] text-slate-500">한국산업기술진흥협회 (제2020112954호)</p>
+                                    </div>
+                                </div>
+                                <span class="text-[11px] font-semibold text-teal-600 bg-pastel-mint px-2 py-0.5 rounded">R&D보유</span>
+                            </div>
+
+                            <div class="p-4 rounded-xl bg-white border border-slate-200 flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center">
+                                        <i data-lucide="user-check" class="w-4 h-4"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xs font-bold text-kr-primary">여성기업 확인서</h4>
+                                        <p class="text-[11px] text-slate-500">광주·전남지방중소벤처기업청장</p>
+                                    </div>
+                                </div>
+                                <span class="text-[11px] font-semibold text-indigo-600 bg-pastel-lavender px-2 py-0.5 rounded">여성기업</span>
+                            </div>
+
+                            <div class="p-4 rounded-xl bg-white border border-slate-200 flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center">
+                                        <i data-lucide="file-check-2" class="w-4 h-4"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xs font-bold text-kr-primary">중소기업 확인서 및 면허</h4>
+                                        <p class="text-[11px] text-slate-500">시설물유지관리업 · 금속구조물창호온실공사 · 석면해체</p>
+                                    </div>
+                                </div>
+                                <span class="text-[11px] font-semibold text-amber-600 bg-pastel-amber px-2 py-0.5 rounded">정식면허</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Technical Personnel Table (카탈로그 03 실제 기술자 명단) -->
+                    <div class="lg:col-span-7 bg-white p-6 sm:p-8 rounded-3xl soft-card-shadow border border-slate-200">
+                        <div class="flex items-center justify-between mb-4">
+                            <div>
+                                <span class="text-xs font-bold text-kr-accent uppercase tracking-wider">ENGINEERING TEAM</span>
+                                <h3 class="text-xl font-bold text-kr-primary mt-1">전문 기술인력 보유 현황</h3>
+                            </div>
+                            <span class="text-xs text-slate-500 font-medium">한국건설기술인협회 등록 기준</span>
+                        </div>
+                        <p class="text-xs text-kr-textMuted mb-6 leading-relaxed">
+                            토목 고급기술자 및 중급·초급 기술진이 현장 감리와 시공 전 과정을 체계적으로 관리 감독합니다.
+                        </p>
+
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left text-xs border-collapse">
+                                <thead>
+                                    <tr class="bg-pastel-blue text-kr-primary border-b border-sky-100">
+                                        <th class="py-3 px-3.5 font-bold rounded-l-lg">직급</th>
+                                        <th class="py-3 px-3.5 font-bold">성명</th>
+                                        <th class="py-3 px-3.5 font-bold">종목</th>
+                                        <th class="py-3 px-3.5 font-bold">등급</th>
+                                        <th class="py-3 px-3.5 font-bold rounded-r-lg">자격번호</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-100 text-slate-700">
+                                    <tr class="hover:bg-slate-50">
+                                        <td class="py-2.5 px-3.5 font-semibold text-kr-primary">대표</td>
+                                        <td class="py-2.5 px-3.5 font-medium">오상원</td>
+                                        <td class="py-2.5 px-3.5">토목</td>
+                                        <td class="py-2.5 px-3.5"><span class="px-2 py-0.5 rounded bg-sky-100 text-sky-700 font-bold text-[11px]">중급</span></td>
+                                        <td class="py-2.5 px-3.5 text-slate-500">G00637254</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50">
+                                        <td class="py-2.5 px-3.5 font-semibold text-kr-primary">이사</td>
+                                        <td class="py-2.5 px-3.5 font-medium">김홍식</td>
+                                        <td class="py-2.5 px-3.5">토목</td>
+                                        <td class="py-2.5 px-3.5"><span class="px-2 py-0.5 rounded bg-indigo-100 text-indigo-700 font-bold text-[11px]">고급</span></td>
+                                        <td class="py-2.5 px-3.5 text-slate-500">G00236496</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50">
+                                        <td class="py-2.5 px-3.5 font-semibold text-kr-primary">설계팀장</td>
+                                        <td class="py-2.5 px-3.5 font-medium">윤준상</td>
+                                        <td class="py-2.5 px-3.5">토목</td>
+                                        <td class="py-2.5 px-3.5"><span class="px-2 py-0.5 rounded bg-indigo-100 text-indigo-700 font-bold text-[11px]">고급</span></td>
+                                        <td class="py-2.5 px-3.5 text-slate-500">G00733846</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50">
+                                        <td class="py-2.5 px-3.5 font-semibold text-kr-primary">부장</td>
+                                        <td class="py-2.5 px-3.5 font-medium">옥일화</td>
+                                        <td class="py-2.5 px-3.5">토목</td>
+                                        <td class="py-2.5 px-3.5"><span class="px-2 py-0.5 rounded bg-sky-100 text-sky-700 font-bold text-[11px]">중급</span></td>
+                                        <td class="py-2.5 px-3.5 text-slate-500">G00654476</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50">
+                                        <td class="py-2.5 px-3.5 font-semibold text-kr-primary">시공팀장</td>
+                                        <td class="py-2.5 px-3.5 font-medium">김정환</td>
+                                        <td class="py-2.5 px-3.5">토목</td>
+                                        <td class="py-2.5 px-3.5"><span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 font-semibold text-[11px]">초급</span></td>
+                                        <td class="py-2.5 px-3.5 text-slate-500">G00749203</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50">
+                                        <td class="py-2.5 px-3.5 font-semibold text-kr-primary">과장</td>
+                                        <td class="py-2.5 px-3.5 font-medium">조재현</td>
+                                        <td class="py-2.5 px-3.5">토목</td>
+                                        <td class="py-2.5 px-3.5"><span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 font-semibold text-[11px]">초급</span></td>
+                                        <td class="py-2.5 px-3.5 text-slate-500">G00712509</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Construction Performance (공사실적 05 실제 카탈로그 데이터 기반) -->
+        <section id="performance" class="py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                    <div>
+                        <span class="text-xs font-extrabold uppercase tracking-widest text-kr-accent bg-pastel-skySoft px-3 py-1 rounded-full">TRACK RECORD</span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-kr-primary mt-3">주요 공사실적</h2>
+                        <p class="text-kr-textMuted text-sm mt-2">전국 국토관리사무소 및 지방자치단체가 발주한 교량·도로·항만 시공 실적입니다.</p>
+                    </div>
+
+                    <!-- Category Filter Tabs -->
+                    <div class="flex flex-wrap gap-2 mt-6 md:mt-0" id="perf-tabs">
+                        <button onclick="filterPerformance('all')" class="perf-tab-btn px-4 py-2 text-xs font-bold rounded-xl bg-kr-primary text-white transition-colors" data-filter="all">전체보기</button>
+                        <button onclick="filterPerformance('lift')" class="perf-tab-btn px-4 py-2 text-xs font-bold rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors" data-filter="lift">교량인상/내진</button>
+                        <button onclick="filterPerformance('repair')" class="perf-tab-btn px-4 py-2 text-xs font-bold rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors" data-filter="repair">단면·표면보수</button>
+                        <button onclick="filterPerformance('paint')" class="perf-tab-btn px-4 py-2 text-xs font-bold rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors" data-filter="paint">강교도장/교면방수</button>
+                        <button onclick="filterPerformance('harbor')" class="perf-tab-btn px-4 py-2 text-xs font-bold rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors" data-filter="harbor">항만/부잔교</button>
+                    </div>
+                </div>
+
+                <!-- Performance Table Layout for High Readability -->
+                <div class="bg-pastel-slate rounded-3xl border border-slate-200 overflow-hidden">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-xs border-collapse">
+                            <thead>
+                                <tr class="bg-slate-100/80 text-kr-primary border-b border-slate-200">
+                                    <th class="py-3.5 px-4 font-bold">No</th>
+                                    <th class="py-3.5 px-4 font-bold">공사명</th>
+                                    <th class="py-3.5 px-4 font-bold">시공연도</th>
+                                    <th class="py-3.5 px-4 font-bold">발주처</th>
+                                    <th class="py-3.5 px-4 font-bold">주요 시공 내용</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-200/80 text-kr-textDark" id="perf-table-body">
+                                
+                                <!-- Lift / Seismic -->
+                                <tr class="perf-row hover:bg-white transition-colors" data-category="lift">
+                                    <td class="py-3.5 px-4 font-medium text-slate-400">17</td>
+                                    <td class="py-3.5 px-4 font-bold text-kr-primary">국지도49호선 영암 삼포4교 내진보강공사</td>
+                                    <td class="py-3.5 px-4 font-medium text-slate-600">2019년</td>
+                                    <td class="py-3.5 px-4">전남도로관리사업소</td>
+                                    <td class="py-3.5 px-4"><span class="px-2.5 py-1 rounded-md text-[11px] font-bold bg-pastel-mint text-pastel-mintDark border border-teal-200">교량인상 / 내진댐퍼</span></td>
+                                </tr>
+                                <tr class="perf-row hover:bg-white transition-colors" data-category="lift">
+                                    <td class="py-3.5 px-4 font-medium text-slate-400">31</td>
+                                    <td class="py-3.5 px-4 font-bold text-kr-primary">국도29호선 화순 용두교 등 3개소 시설물 보수공사</td>
+                                    <td class="py-3.5 px-4 font-medium text-slate-600">2020년</td>
+                                    <td class="py-3.5 px-4">광주국토관리사무소</td>
+                                    <td class="py-3.5 px-4"><span class="px-2.5 py-1 rounded-md text-[11px] font-bold bg-pastel-mint text-pastel-mintDark border border-teal-200">교량인상 (MCS공법)</span></td>
+                                </tr>
+                                <tr class="perf-row hover:bg-white transition-colors" data-category="lift">
+                                    <td class="py-3.5 px-4 font-medium text-slate-400">42</td>
+                                    <td class="py-3.5 px-4 font-bold text-kr-primary">국도38호선 곰골1교(하) 내진성능 보강공사</td>
+                                    <td class="py-3.5 px-4 font-medium text-slate-600">2020년</td>
+                                    <td class="py-3.5 px-4">정선국토관리사무소</td>
+                                    <td class="py-3.5 px-4"><span class="px-2.5 py-1 rounded-md text-[11px] font-bold bg-pastel-mint text-pastel-mintDark border border-teal-200">교량인상 / 받침교체</span></td>
+                                </tr>
+                                <tr class="perf-row hover:bg-white transition-colors" data-category="lift">
+                                    <td class="py-3.5 px-4 font-medium text-slate-400">41</td>
+                                    <td class="py-3.5 px-4 font-bold text-kr-primary">국도21호선 군산 옥산2교(상) 등 4개교 보수공사</td>
+                                    <td class="py-3.5 px-4 font-medium text-slate-600">2020년</td>
+                                    <td class="py-3.5 px-4">전주국토관리사무소</td>
+                                    <td class="py-3.5 px-4"><span class="px-2.5 py-1 rounded-md text-[11px] font-bold bg-pastel-mint text-pastel-mintDark border border-teal-200">교량인상</span></td>
+                                </tr>
+
+                                <!-- Repair -->
+                                <tr class="perf-row hover:bg-white transition-colors" data-category="repair">
+                                    <td class="py-3.5 px-4 font-medium text-slate-400">01</td>
+                                    <td class="py-3.5 px-4 font-bold text-kr-primary">광주 송정2교 보수공사</td>
+                                    <td class="py-3.5 px-4 font-medium text-slate-600">2019년</td>
+                                    <td class="py-3.5 px-4">광주광역시</td>
+                                    <td class="py-3.5 px-4"><span class="px-2.5 py-1 rounded-md text-[11px] font-bold bg-pastel-skySoft text-kr-accent border border-sky-200">표면 및 단면보수</span></td>
+                                </tr>
+                                <tr class="perf-row hover:bg-white transition-colors" data-category="repair">
+                                    <td class="py-3.5 px-4 font-medium text-slate-400">07</td>
+                                    <td class="py-3.5 px-4 font-bold text-kr-primary">양을산터널 외 3개소 시설물 보수보강공사</td>
+                                    <td class="py-3.5 px-4 font-medium text-slate-600">2019년</td>
+                                    <td class="py-3.5 px-4">목포시</td>
+                                    <td class="py-3.5 px-4"><span class="px-2.5 py-1 rounded-md text-[11px] font-bold bg-pastel-skySoft text-kr-accent border border-sky-200">터널 표면 및 단면보수</span></td>
+                                </tr>
+                                <tr class="perf-row hover:bg-white transition-colors" data-category="repair">
+                                    <td class="py-3.5 px-4 font-medium text-slate-400">04</td>
+                                    <td class="py-3.5 px-4 font-bold text-kr-primary">지방도 861호선 광양 금천교 등 3개소 보수공사</td>
+                                    <td class="py-3.5 px-4 font-medium text-slate-600">2019년</td>
+                                    <td class="py-3.5 px-4">전라남도</td>
+                                    <td class="py-3.5 px-4"><span class="px-2.5 py-1 rounded-md text-[11px] font-bold bg-pastel-skySoft text-kr-accent border border-sky-200">표면 및 단면보수</span></td>
+                                </tr>
+                                <tr class="perf-row hover:bg-white transition-colors" data-category="repair">
+                                    <td class="py-3.5 px-4 font-medium text-slate-400">29</td>
+                                    <td class="py-3.5 px-4 font-bold text-kr-primary">옥암지하차도 등 3개소 시설물 보수보강공사</td>
+                                    <td class="py-3.5 px-4 font-medium text-slate-600">2020년</td>
+                                    <td class="py-3.5 px-4">목포시</td>
+                                    <td class="py-3.5 px-4"><span class="px-2.5 py-1 rounded-md text-[11px] font-bold bg-pastel-skySoft text-kr-accent border border-sky-200">지하차도 단면보수</span></td>
+                                </tr>
+
+                                <!-- Paint & Waterproof -->
+                                <tr class="perf-row hover:bg-white transition-colors" data-category="paint">
+                                    <td class="py-3.5 px-4 font-medium text-slate-400">15</td>
+                                    <td class="py-3.5 px-4 font-bold text-kr-primary">국도13호선 신흥교 강교도장 보수공사</td>
+                                    <td class="py-3.5 px-4 font-medium text-slate-600">2019년</td>
+                                    <td class="py-3.5 px-4">순천국토관리사무소</td>
+                                    <td class="py-3.5 px-4"><span class="px-2.5 py-1 rounded-md text-[11px] font-bold bg-pastel-lavender text-pastel-lavenderDark border border-indigo-200">강교도장 (KRS공법)</span></td>
+                                </tr>
+                                <tr class="perf-row hover:bg-white transition-colors" data-category="paint">
+                                    <td class="py-3.5 px-4 font-medium text-slate-400">16</td>
+                                    <td class="py-3.5 px-4 font-bold text-kr-primary">국도15호선 곡천교 시설물 보수공사</td>
+                                    <td class="py-3.5 px-4 font-medium text-slate-600">2019년</td>
+                                    <td class="py-3.5 px-4">순천국토관리사무소</td>
+                                    <td class="py-3.5 px-4"><span class="px-2.5 py-1 rounded-md text-[11px] font-bold bg-pastel-lavender text-pastel-lavenderDark border border-indigo-200">강교도장</span></td>
+                                </tr>
+                                <tr class="perf-row hover:bg-white transition-colors" data-category="paint">
+                                    <td class="py-3.5 px-4 font-medium text-slate-400">10</td>
+                                    <td class="py-3.5 px-4 font-bold text-kr-primary">국도38호선 무사교(하) 포장 보수공사</td>
+                                    <td class="py-3.5 px-4 font-medium text-slate-600">2019년</td>
+                                    <td class="py-3.5 px-4">정선국토관리사무소</td>
+                                    <td class="py-3.5 px-4"><span class="px-2.5 py-1 rounded-md text-[11px] font-bold bg-pastel-lavender text-pastel-lavenderDark border border-indigo-200">교면방수</span></td>
+                                </tr>
+
+                                <!-- Harbor -->
+                                <tr class="perf-row hover:bg-white transition-colors" data-category="harbor">
+                                    <td class="py-3.5 px-4 font-medium text-slate-400">21</td>
+                                    <td class="py-3.5 px-4 font-bold text-kr-primary">완도항 관공선부두 도교제작 및 함선 설치공사</td>
+                                    <td class="py-3.5 px-4 font-medium text-slate-600">2019년</td>
+                                    <td class="py-3.5 px-4">전라남도</td>
+                                    <td class="py-3.5 px-4"><span class="px-2.5 py-1 rounded-md text-[11px] font-bold bg-pastel-amber text-pastel-amberDark border border-amber-200">항만시설 유지관리 / 도교제작</span></td>
+                                </tr>
+                                <tr class="perf-row hover:bg-white transition-colors" data-category="harbor">
+                                    <td class="py-3.5 px-4 font-medium text-slate-400">27</td>
+                                    <td class="py-3.5 px-4 font-bold text-kr-primary">목포 고하도 응박개항 부잔교 설치공사</td>
+                                    <td class="py-3.5 px-4 font-medium text-slate-600">2020년</td>
+                                    <td class="py-3.5 px-4">목포시</td>
+                                    <td class="py-3.5 px-4"><span class="px-2.5 py-1 rounded-md text-[11px] font-bold bg-pastel-amber text-pastel-amberDark border border-amber-200">부잔교 설치</span></td>
+                                </tr>
+                                <tr class="perf-row hover:bg-white transition-colors" data-category="harbor">
+                                    <td class="py-3.5 px-4 font-medium text-slate-400">06</td>
+                                    <td class="py-3.5 px-4 font-bold text-kr-primary">진도항 여객부두함선 긴급복구공사</td>
+                                    <td class="py-3.5 px-4 font-medium text-slate-600">2019년</td>
+                                    <td class="py-3.5 px-4">전라남도</td>
+                                    <td class="py-3.5 px-4"><span class="px-2.5 py-1 rounded-md text-[11px] font-bold bg-pastel-amber text-pastel-amberDark border border-amber-200">함선 복구 및 단면보수</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Contact & Location (카탈로그 실제 연락처 및 사업장 주소) -->
+        <section id="contact" class="py-24 bg-pastel-cream border-t border-slate-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                    
+                    <!-- Left: Company Official Information -->
+                    <div class="lg:col-span-5 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-extrabold uppercase tracking-widest text-kr-accent bg-pastel-skySoft px-3 py-1 rounded-full">CONTACT & LOCATION</span>
+                            <h2 class="text-3xl font-extrabold text-kr-primary mt-3 mb-4">공사 견적 및 기술 문의</h2>
+                            <p class="text-kr-textMuted text-sm mb-8 leading-relaxed">
+                                케이알건설(주)의 특허기술진이 시설물 보수보강 및 정밀안전진단에 대한 정확하고 경제적인 맞춤 솔루션을 상담해 드립니다.
+                            </p>
+
+                            <div class="space-y-4">
+                                <!-- Address -->
+                                <div class="p-4 rounded-2xl bg-white border border-slate-200 flex items-start gap-3.5">
+                                    <div class="p-2.5 rounded-xl bg-pastel-blue text-kr-accent shrink-0">
+                                        <i data-lucide="map-pin" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xs font-bold text-kr-primary">본점 및 사업장 소재지</h4>
+                                        <p class="text-sm text-kr-textDark font-medium mt-0.5">전라남도 목포시 평화로 38, 4층 (상동)</p>
+                                        <p class="text-[11px] text-slate-400 mt-0.5">사업자등록번호: 744-88-01072</p>
+                                    </div>
+                                </div>
+
+                                <!-- Phone -->
+                                <div class="p-4 rounded-2xl bg-white border border-slate-200 flex items-start gap-3.5">
+                                    <div class="p-2.5 rounded-xl bg-pastel-mint text-teal-600 shrink-0">
+                                        <i data-lucide="phone-call" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xs font-bold text-kr-primary">대표 전화</h4>
+                                        <p class="text-sm text-kr-textDark font-extrabold mt-0.5">061-285-6900</p>
+                                        <p class="text-[11px] text-slate-400 mt-0.5">상담시간: 평일 09:00 ~ 18:00</p>
+                                    </div>
+                                </div>
+
+                                <!-- Fax -->
+                                <div class="p-4 rounded-2xl bg-white border border-slate-200 flex items-start gap-3.5">
+                                    <div class="p-2.5 rounded-xl bg-pastel-lavender text-indigo-600 shrink-0">
+                                        <i data-lucide="printer" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xs font-bold text-kr-primary">팩스 번호</h4>
+                                        <p class="text-sm text-kr-textDark font-semibold mt-0.5">061-285-6901</p>
+                                    </div>
+                                </div>
+
+                                <!-- Email -->
+                                <div class="p-4 rounded-2xl bg-white border border-slate-200 flex items-start gap-3.5">
+                                    <div class="p-2.5 rounded-xl bg-pastel-amber text-amber-600 shrink-0">
+                                        <i data-lucide="mail" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xs font-bold text-kr-primary">공식 이메일</h4>
+                                        <p class="text-sm text-kr-textDark font-semibold mt-0.5">kr2856900@naver.com</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Safety Guarantee Ribbon -->
+                        <div class="mt-8 p-4 rounded-2xl bg-sky-50/80 border border-sky-100 flex items-center gap-3">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-kr-accent shrink-0"></i>
+                            <span class="text-xs text-kr-primary font-medium">
+                                접수된 기술 문의는 본사 토목 전담 기술팀에서 검토 후 24시간 내 회신드립니다.
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Right: Fast Inquiry Form -->
+                    <div class="lg:col-span-7 bg-white p-8 sm:p-10 rounded-3xl soft-card-shadow border border-slate-200">
+                        <h3 class="text-xl font-bold text-kr-primary mb-2">온라인 시공/진단 견적 문의</h3>
+                        <p class="text-xs text-kr-textMuted mb-8">원하시는 공법이나 현장 상황을 남겨주시면 신속히 연락드리겠습니다.</p>
+
+                        <form id="contact-form" onsubmit="handleInquirySubmit(event)" class="space-y-5">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                <div>
+                                    <label for="c-name" class="block text-xs font-bold text-slate-700 mb-1.5">기관/업체명 (또는 성명) <span class="text-red-500">*</span></label>
+                                    <input type="text" id="c-name" required placeholder="예: (주)00건설 / 담당자명" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-kr-accent text-xs">
+                                </div>
+                                <div>
+                                    <label for="c-phone" class="block text-xs font-bold text-slate-700 mb-1.5">연락처 <span class="text-red-500">*</span></label>
+                                    <input type="tel" id="c-phone" required placeholder="010-0000-0000" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-kr-accent text-xs">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                <div>
+                                    <label for="c-email" class="block text-xs font-bold text-slate-700 mb-1.5">이메일 <span class="text-red-500">*</span></label>
+                                    <input type="email" id="c-email" required placeholder="name@domain.com" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-kr-accent text-xs">
+                                </div>
+                                <div>
+                                    <label for="c-service" class="block text-xs font-bold text-slate-700 mb-1.5">관심 공법 / 진단 부문 <span class="text-red-500">*</span></label>
+                                    <select id="c-service" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-kr-accent text-xs bg-white text-slate-700">
+                                        <option value="">적용 분야를 선택하세요</option>
+                                        <option value="krm">KRM 콘크리트 단면/표면보수 공법</option>
+                                        <option value="mcs">MCS 컴퓨터 교량 동조 인상 (받침교체)</option>
+                                        <option value="krs">KRS 친환경 중방식 도장</option>
+                                        <option value="krs-c">KRS-C 레이저 세정 녹/페인트 제거</option>
+                                        <option value="diag">교량/터널 정밀안전진단 및 점검</option>
+                                        <option value="harbor">해양 항만 부잔교 / 도교 제작</option>
+                                        <option value="other">기타 시설물유지보수</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="c-desc" class="block text-xs font-bold text-slate-700 mb-1.5">현장 위치 및 문의 상세 내용 <span class="text-red-500">*</span></label>
+                                <textarea id="c-desc" rows="4" required placeholder="시설물 종류, 대략적인 위치, 공사 예상 규모 및 요구사항을 적어주시면 상세한 안내가 가능합니다." class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-kr-accent text-xs resize-none"></textarea>
+                            </div>
+
+                            <div class="flex items-center gap-2">
+                                <input type="checkbox" id="c-agree" required class="w-4 h-4 rounded text-kr-accent focus:ring-kr-accent border-slate-300">
+                                <label for="c-agree" class="text-xs text-slate-600">
+                                    상담 접수를 위한 개인정보 수집 및 활용에 동의합니다. (필수)
+                                </label>
+                            </div>
+
+                            <button type="submit" class="w-full py-4 rounded-xl bg-kr-primary hover:bg-sky-900 text-white font-bold text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2">
+                                <span>상담 요청서 제출하기</span>
+                                <i data-lucide="send" class="w-4 h-4"></i>
+                            </button>
+                        </form>
+
+                        <!-- Non-alert Custom Success Box -->
+                        <div id="form-result" class="hidden mt-4 p-4 rounded-2xl bg-pastel-mint border border-teal-200 text-teal-900 text-xs leading-relaxed">
+                            <div class="flex items-center gap-2 font-bold text-sm text-teal-800 mb-1">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-teal-600"></i>
+                                상담 요청이 성공적으로 접수되었습니다.
+                            </div>
+                            기재해주신 연락처(전화 또는 이메일)로 본사 담당 엔지니어가 신속히 안내해 드리겠습니다.
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 text-kr-textMuted py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-8 border-b border-slate-100">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-xl bg-kr-primary flex items-center justify-center text-white font-black text-sm">
+                        KR
+                    </div>
+                    <div>
+                        <span class="text-lg font-black text-kr-primary">케이알건설(주)</span>
+                        <span class="text-xs text-slate-400 block -mt-0.5">KR INDUSTRY Co., Ltd.</span>
+                    </div>
+                </div>
+                <div class="flex flex-wrap gap-6 text-xs font-semibold text-slate-600">
+                    <a href="#about" class="hover:text-kr-accent">회사소개</a>
+                    <a href="#patents" class="hover:text-kr-accent">특허공법</a>
+                    <a href="#safety-diag" class="hover:text-kr-accent">안전진단</a>
+                    <a href="#performance" class="hover:text-kr-accent">공사실적</a>
+                    <a href="#contact" class="hover:text-kr-accent">오시는 길</a>
+                </div>
+            </div>
+
+            <div class="pt-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-xs text-slate-500">
+                <div class="space-y-1">
+                    <p>상호: 케이알건설 주식회사 | 대표자: 김양진 | 사업자등록번호: 744-88-01072 | 법인등록번호: 201111-0055213</p>
+                    <p>본사/사업장: 전라남도 목포시 평화로 38, 4층(상동) | TEL: 061-285-6900 | FAX: 061-285-6901 | E-MAIL: kr2856900@naver.com</p>
+                    <p class="text-[11px] text-slate-400">업태: 건설업, 도소매, 임대업 | 종목: 시설물유지관리업, 금속구조물·창호·온실공사업, 석면해체제거업</p>
+                </div>
+                <div class="text-slate-400 text-xs shrink-0">
+                    &copy; 2026 케이알건설(주). All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Script -->
+    <script>
+        // Init Lucide
+        lucide.createIcons();
+
+        // Mobile Nav Hamburger
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Performance Filter
+        function filterPerformance(category) {
+            // Update active tab buttons
+            const buttons = document.querySelectorAll('.perf-tab-btn');
+            buttons.forEach(btn => {
+                if (btn.getAttribute('data-filter') === category) {
+                    btn.classList.remove('bg-slate-100', 'text-slate-600');
+                    btn.classList.add('bg-kr-primary', 'text-white');
+                } else {
+                    btn.classList.remove('bg-kr-primary', 'text-white');
+                    btn.classList.add('bg-slate-100', 'text-slate-600');
+                }
+            });
+
+            // Filter Table Rows
+            const rows = document.querySelectorAll('.perf-row');
+            rows.forEach(row => {
+                const rowCategory = row.getAttribute('data-category');
+                if (category === 'all' || rowCategory === category) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+
+        // Contact Form Handling (No alert())
+        function handleInquirySubmit(e) {
+            e.preventDefault();
+            const resultBox = document.getElementById('form-result');
+            const form = document.getElementById('contact-form');
+
+            resultBox.classList.remove('hidden');
+            form.reset();
+            lucide.createIcons();
+
+            resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    </script>
+</body>
+</html>
